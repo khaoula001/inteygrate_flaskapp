@@ -40,7 +40,7 @@ def sendmsg():
         logger.info('------> CHAKIB : after new Client !')
         logger.info('------> CHAKIB : before send message !')
         res = client.send_message(to, msg)  
-        res += ' - message maybe sent...'
+        res = 'Message Sent'
         logger.info('------> CHAKIB : after send message !')
     else:
         res = 'Unauthorized'
