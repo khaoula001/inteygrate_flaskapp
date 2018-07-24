@@ -36,10 +36,11 @@ def sendmsg():
     token = request.args.get('token')
     if(str(token) == expected_token):
         logger.info('------> CHAKIB : Before new Client !')
-        client = Client(login='212679077037', password='xqbPaGV2DVGB80gdPiDiSZg7biU=')
+        client = Client(login='+212679077037', password='xqbPaGV2DVGB80gdPiDiSZg7biU=')
         logger.info('------> CHAKIB : after new Client !')
         logger.info('------> CHAKIB : before send message !')
         res = client.send_message(to, msg)  
+        res += ' - message maybe sent...'
         logger.info('------> CHAKIB : after send message !')
     else:
         res = 'Unauthorized'
