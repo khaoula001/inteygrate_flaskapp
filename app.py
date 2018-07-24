@@ -43,5 +43,4 @@ def sendmsg():
     logging.warning('------> CHAKIB : finish !')
     return str(res)
 
-if __name__ == '__main__':
-    app.run()
+app.run()
