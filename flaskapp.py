@@ -2,7 +2,7 @@ from flask import Flask
 from flask import request
 
 #WA[
-from whatsapp import Client
+from yowsup import Client
 expected_token = 'mySecretToken'
 #]WA
 
