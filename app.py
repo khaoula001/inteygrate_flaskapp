@@ -6,8 +6,9 @@ from whatsapp import Client
 expected_token = 'mySecretToken'
 #]WA
 
+logging.warning('------> CHAKIB : IN THE SCRIPT..... !')
 app = Flask(__name__)
-
+logging.warning('------> CHAKIB : AFTER FLASK..... !')
 
 
 @app.route('/')
