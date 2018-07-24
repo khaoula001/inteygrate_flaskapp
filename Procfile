@@ -1,1 +1,1 @@
-web: python flaskapp.py -p $PORT
+web: python flaskapp.py
