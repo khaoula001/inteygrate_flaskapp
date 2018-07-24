@@ -13,7 +13,7 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 logging.warning('------> CHAKIB : IN THE SCRIPT..... !')
 
-@app.route('/')
+@app.route('/', methods = ['GET'])
 def hello_world():
     logging.warning('------> CHAKIB : hello_world !')
     return 'Hello World!'
@@ -24,7 +24,7 @@ def msg():
     to = request.form['to']
     return str(to)
 
-@app.route('/sendmsg')
+@app.route('/sendmsg', methods = ['GET'])
 def sendmsg():
     logging.warning('------> CHAKIB : sendmsg !')
     to = request.args.get('to')
