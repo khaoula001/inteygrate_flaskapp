@@ -1,4 +1,5 @@
 import sys
+import os
 import logging
 from flask import Flask
 from flask import request
@@ -43,4 +44,7 @@ def sendmsg():
     logging.warning('------> CHAKIB : finish !')
     return str(res)
 
-app.run()
+if __name__ == '__main__':
+    # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
