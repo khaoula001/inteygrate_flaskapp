@@ -4,44 +4,47 @@ import logging
 from flask import Flask
 from flask import request
 
+logger = logging.getLogger(__name__)
+logger.info('some important infos')
+
+
 #WA[
 from whatsapp import Client
 expected_token = 'mySecretToken'
 #]WA
 
 app = Flask(__name__)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
-logging.warning('------> CHAKIB : IN THE SCRIPT..... !')
+
+logger.info('------> CHAKIB : IN THE SCRIPT..... !')
 
 @app.route('/', methods = ['GET'])
 def hello_world():
-    logging.warning('------> CHAKIB : hello_world !')
+    logger.info('------> CHAKIB : hello_world !')
     return 'Hello World!'
 
 @app.route('/msg', methods = ['POST'])
 def msg():
-    logging.warning('------> CHAKIB : msg !')
+    logger.info('------> CHAKIB : msg !')
     to = request.form['to']
     return str(to)
 
 @app.route('/sendmsg', methods = ['GET'])
 def sendmsg():
-    logging.warning('------> CHAKIB : sendmsg !')
+    logger.info('------> CHAKIB : sendmsg !')
     to = request.args.get('to')
     msg = request.args.get('msg')
     token = request.args.get('token')
     if(str(token) == expected_token):
-        logging.warning('------> CHAKIB : Before new Client !')
+        logger.info('------> CHAKIB : Before new Client !')
         client = Client(login='212679077037', password='xqbPaGV2DVGB80gdPiDiSZg7biU=')
-        logging.warning('------> CHAKIB : after new Client !')
-        logging.warning('------> CHAKIB : before send message !')
+        logger.info('------> CHAKIB : after new Client !')
+        logger.info('------> CHAKIB : before send message !')
         res = client.send_message(to, msg)  
-        logging.warning('------> CHAKIB : after send message !')
+        logger.info('------> CHAKIB : after send message !')
     else:
         res = 'Unauthorized'
     
-    logging.warning('------> CHAKIB : finish !')
+    logger.info('------> CHAKIB : finish !')
     return str(res)
 
 if __name__ == '__main__':
