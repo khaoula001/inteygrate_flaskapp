@@ -1,1 +1,1 @@
-web: python flaskapp.py
+worker: python flaskapp.py
