@@ -1,3 +1,5 @@
+import sys
+import logging
 from flask import Flask
 from flask import request
 
@@ -6,6 +8,8 @@ from whatsapp import Client
 expected_token = 'mySecretToken'
 #]WA
 
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 logging.warning('------> CHAKIB : IN THE SCRIPT..... !')
 app = Flask(__name__)
 logging.warning('------> CHAKIB : AFTER FLASK..... !')
